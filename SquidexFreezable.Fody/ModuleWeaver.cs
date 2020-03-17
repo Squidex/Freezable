@@ -8,7 +8,7 @@ public class ModuleWeaver:BaseModuleWeaver
     {
         var freezableTypeFinder = new FreezableTypeFinder(ModuleDefinition, ResolveAssembly);
         freezableTypeFinder.Execute();
-        var typeFinder = new TypeFinder(ModuleDefinition,FindType);
+        var typeFinder = new TypeFinder(ModuleDefinition, FindTypeDefinition);
         typeFinder.Execute();
 
         var volatileFieldFixer = new VolatileFieldFixer(typeFinder);
@@ -22,7 +22,7 @@ public class ModuleWeaver:BaseModuleWeaver
         var classes = ModuleDefinition.GetTypes()
             .Where(x => x.IsClass)
             .ToList();
-        var assemblyProcessor = new AssemblyProcessor(freezeCheckerInjector, implementsInterfaceFinder, LogInfo);
+        var assemblyProcessor = new AssemblyProcessor(freezeCheckerInjector, implementsInterfaceFinder, WriteInfo);
         assemblyProcessor.Execute(classes);
 
         volatileFieldFixer.Execute(classes);

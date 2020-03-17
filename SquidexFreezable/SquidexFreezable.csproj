@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <Authors>Simon Cropp, Sebastian Stehle</Authors>
+    <NoWarn>CS1591</NoWarn>
+    <PackageTags>Freezable, ILWeaving, Fody, Cecil</PackageTags>
+    <Description>Implements the Freezable pattern. Custom fork for Squidex CMS.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Fody" Version="6.1.1" PrivateAssets="None" />
+    <PackageReference Include="FodyPackaging" Version="6.1.0" PrivateAssets="All" />
+  </ItemGroup>
+</Project>
